@@ -20,7 +20,7 @@ if api_key is None:
 wandb.login(key=api_key)
 
 # Initialize a new W&B run for experiment tracking
-run = wandb.init(project="bert-tiny-sentiment", name=run_name, job_type="training")
+run = wandb.init(project="bert-tiny-sentiment-10-2-26", name=run_name, job_type="training")
 
 dataset = load_dataset(dataset_name)
 dataset = DatasetDict({
@@ -71,7 +71,7 @@ training_args = TrainingArguments(
     eval_strategy="steps",                    # Evaluate every N steps
     save_strategy="steps",                    # Save checkpoint every N steps
     save_steps=1000,                          # Save checkpoint every 1000 steps
-    eval_steps=1000,                          # Evaluate every 1000 steps
+    eval_steps=100,                          # Evaluate every 1000 steps
     logging_dir="./logs",                     # Directory for logs
     logging_steps=50,                         # Log every 50 steps
     load_best_model_at_end=True,              # Load the best model at the end of training
